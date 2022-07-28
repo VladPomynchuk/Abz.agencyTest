@@ -16,6 +16,16 @@ export const Section = styled.section`
     url(${bgcImage});
   background-size: cover;
   background-position: center;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 89px;
+    padding-bottom: 88px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding-top: 164px;
+    padding-bottom: 163px;
+  }
 `;
 
 export const Title = styled.h1`

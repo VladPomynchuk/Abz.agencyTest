@@ -15,13 +15,19 @@ export const Title = styled.h2`
 `;
 
 export const List = styled.ul`
-  background-color: ${props => props.theme.white};
+  margin-bottom: 50px;
 
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 
-  margin-bottom: 50px;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    gap: 29px;
+  }
 `;
 
 export const Button = styled.button`
@@ -29,6 +35,8 @@ export const Button = styled.button`
   min-height: 34px;
   border: none;
   border-radius: 80px;
+  padding-left: 19px;
+  padding-right: 18px;
   background-color: ${props => props.theme.primary};
   margin-left: auto;
   margin-right: auto;

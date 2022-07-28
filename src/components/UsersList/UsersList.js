@@ -1,13 +1,22 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useLazyGetUsersQuery } from 'redux/usersApi';
+import { useGetUsersQuery, useLazyGetUsersQuery } from 'redux/usersApi';
 import UserItem from 'components/UserItem';
 import { Section, Title, List, Button } from './UserList.styled';
 import { Container } from 'components/Container';
+import Loader from 'components/Loader/Loader';
 
-const UsersList = ({ users, setUsers, totalUsers }) => {
-  const [page, setPage] = useState(1);
-  const [trigger, result] = useLazyGetUsersQuery();
+const UsersList = ({ page, setPage, users, setUsers }) => {
+  const { data, isLoading } = useGetUsersQuery();
+  const [trigger, { isFetching }] = useLazyGetUsersQuery();
+  const [totalUsers, setTotalUsers] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setUsers(data.users);
+      setTotalUsers(data.total_users);
+    }
+  }, [data, setUsers]);
 
   useEffect(() => {
     async function updateUsers() {
@@ -16,7 +25,8 @@ const UsersList = ({ users, setUsers, totalUsers }) => {
       } = await trigger(page);
       setUsers(prevState => [...prevState, ...users]);
     }
-    if (page > 1) {
+
+    if (page !== 1) {
       updateUsers();
     }
   }, [page, setUsers, trigger]);
@@ -29,13 +39,22 @@ const UsersList = ({ users, setUsers, totalUsers }) => {
     <Section>
       <Container>
         <Title>Working with GET request</Title>
-        <List>
-          {users.map(user => (
-            <UserItem key={user.id} user={user} />
-          ))}
-        </List>
-        {totalUsers > users.length && (
-          <Button onClick={handleClick}>Show more</Button>
+        {isLoading && <Loader />}
+        {users && (
+          <List>
+            {users.map(user => (
+              <UserItem key={user.id} user={user} />
+            ))}
+          </List>
+        )}
+        {isFetching ? (
+          <Loader />
+        ) : (
+          <>
+            {users && totalUsers > users.length && (
+              <Button onClick={handleClick}>Show more</Button>
+            )}
+          </>
         )}
       </Container>
     </Section>

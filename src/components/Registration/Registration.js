@@ -1,10 +1,14 @@
 import AddUserForm from 'components/AddUserForm/AddUserForm';
+import { Container } from 'components/Container';
+import { Section } from './Registration.styled';
 
-const Registration = () => {
+const Registration = ({ setUsers }) => {
   return (
-    <div>
-      <AddUserForm />
-    </div>
+    <Section>
+      <Container>
+        <AddUserForm setUsers={setUsers} />
+      </Container>
+    </Section>
   );
 };
 

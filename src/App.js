@@ -1,31 +1,25 @@
 import { useState } from 'react';
 import UsersList from 'components/UsersList';
-import { useGetUsersQuery } from 'redux/usersApi';
-import { useEffect } from 'react';
 import Registration from 'components/Registration';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
+import { Toaster } from 'react-hot-toast';
 
 export const App = () => {
-  const { data } = useGetUsersQuery();
+  const [page, setPage] = useState(1);
   const [users, setUsers] = useState(null);
-  const [totalUsers, setTotalUsers] = useState(0);
-
-  useEffect(() => {
-    if (data && !users) {
-      setUsers(data.users);
-      setTotalUsers(data.total_users);
-    }
-  }, [data, users]);
-
   return (
     <>
       <Header />
       <Hero />
-      {users && (
-        <UsersList users={users} setUsers={setUsers} totalUsers={totalUsers} />
-      )}
-      <Registration />
+      <UsersList
+        page={page}
+        setPage={setPage}
+        users={users}
+        setUsers={setUsers}
+      />
+      <Registration setPage={setPage} setUsers={setUsers} />
+      <Toaster position="top-right" reverseOrder={false} />
     </>
   );
 };

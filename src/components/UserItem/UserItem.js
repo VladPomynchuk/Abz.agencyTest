@@ -6,10 +6,10 @@ const UserItem = ({ user: { name, phone, photo, email, position } }) => {
       <Box>
         <img src={photo} alt="qwe" />
       </Box>
-      <Name>{name}</Name>
-      <Text>{position}</Text>
-      <Text>{email}</Text>
-      <Text>{phone}</Text>
+      <Name title={name}>{name}</Name>
+      <Text title={position}>{position}</Text>
+      <Text title={email}>{email}</Text>
+      <Text title={phone}> {phone}</Text>
     </Item>
   );
 };

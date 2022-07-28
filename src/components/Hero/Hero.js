@@ -15,7 +15,7 @@ const Hero = () => {
           Development keeps evolving.
         </Text>
         <Button>
-          <Link href="/">Sing up</Link>
+          <Link href="/">Sign up</Link>
         </Button>
       </Container>
     </Section>
