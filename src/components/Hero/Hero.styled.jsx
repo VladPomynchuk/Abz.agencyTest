@@ -49,12 +49,18 @@ export const Text = styled.p`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
+
   display: block;
   min-width: 100px;
   min-height: 34px;
   border: none;
   border-radius: 80px;
   background-color: ${props => props.theme.primary};
+
+  :hover {
+    background-color: ${props => props.theme.button.hover};
+  }
 
   margin-right: auto;
   margin-left: auto;

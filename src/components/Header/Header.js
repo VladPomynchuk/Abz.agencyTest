@@ -11,10 +11,10 @@ const Header = () => {
           <img src={logo} alt="logo" />
           <Nav>
             <Button>
-              <Link href="/">Users</Link>
+              <Link href="#users">Users</Link>
             </Button>
             <Button>
-              <Link href="/">Sign up</Link>
+              <Link href="#sign">Sign up</Link>
             </Button>
           </Nav>
         </Box>

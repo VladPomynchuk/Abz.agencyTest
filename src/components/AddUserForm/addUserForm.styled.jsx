@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { createTheme } from '@mui/material';
 
 export const AddButton = styled.button`
+  cursor: pointer;
+
   display: block;
   min-width: 100px;
   min-height: 34px;
@@ -11,6 +13,14 @@ export const AddButton = styled.button`
 
   margin-right: auto;
   margin-left: auto;
+
+  :hover {
+    background-color: ${props => props.theme.button.hover};
+  }
+
+  :disabled {
+    background-color: ${props => props.theme.button.disable};
+  }
 `;
 
 export const Title = styled.h2`

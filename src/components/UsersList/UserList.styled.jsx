@@ -31,6 +31,8 @@ export const List = styled.ul`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
+
   min-width: 100px;
   min-height: 34px;
   border: none;
@@ -38,6 +40,10 @@ export const Button = styled.button`
   padding-left: 19px;
   padding-right: 18px;
   background-color: ${props => props.theme.primary};
+
+  :hover {
+    background-color: ${props => props.theme.button.hover};
+  }
   margin-left: auto;
   margin-right: auto;
   display: block;

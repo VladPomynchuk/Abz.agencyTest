@@ -5,7 +5,7 @@ import { Section } from './Registration.styled';
 const Registration = ({ setUsers }) => {
   return (
     <Section>
-      <Container>
+      <Container id="sign">
         <AddUserForm setUsers={setUsers} />
       </Container>
     </Section>

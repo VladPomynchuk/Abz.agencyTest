@@ -1,3 +1,5 @@
+// Глобальная тема для styled-components
+
 export const theme = {
   primary: '#F4E041',
   secondary: '#00BDD3',

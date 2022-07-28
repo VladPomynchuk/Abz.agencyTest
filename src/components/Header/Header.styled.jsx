@@ -17,11 +17,17 @@ export const Nav = styled.nav`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
+
   min-width: 100px;
   min-height: 34px;
   border: none;
   border-radius: 80px;
   background-color: ${props => props.theme.primary};
+
+  :hover {
+    background-color: ${props => props.theme.button.hover};
+  }
 `;
 
 export const Link = styled.a`

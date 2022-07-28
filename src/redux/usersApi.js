@@ -35,15 +35,6 @@ export const usersApi = createApi({
         method: 'GET',
       }),
     }),
-
-    // deleteContact: builder.mutation({
-    //   query: id => ({ url: `/contacts/${id}`, method: 'DELETE' }),
-    //   invalidatesTags: ['Contacts'],
-    // }),
-    // addContact: builder.mutation({
-    //   query: values => ({ url: '/contacts', method: 'POST', data: values }),
-    //   invalidatesTags: ['Contacts'],
-    // }),
   }),
 });
 
