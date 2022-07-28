@@ -6,9 +6,11 @@ import RadioInput from './RadioInput';
 import FileInput from './FileInput';
 import { useForm } from 'components/hooks/useForm';
 
-const AddUserForm = ({ setUsers }) => {
-  const { isSuccess, isLoading, formik, data, isError, error } =
-    useForm(setUsers);
+const AddUserForm = ({ setUsers, setPage }) => {
+  const { isSuccess, isLoading, formik, data, isError, error } = useForm(
+    setUsers,
+    setPage
+  );
 
   return (
     <div>

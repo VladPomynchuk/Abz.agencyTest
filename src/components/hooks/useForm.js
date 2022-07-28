@@ -13,7 +13,7 @@ const initialValues = {
   photo: '',
 };
 
-export const useForm = setUsers => {
+export const useForm = (setUsers, setPage) => {
   const { data, isLoading } = useGetPositionsQuery();
   const [getToken] = useLazyGetTokenQuery();
   const [addUser, { isSuccess, error, isError }] = useAddUserMutation();
@@ -27,7 +27,10 @@ export const useForm = setUsers => {
       axiosToken.set(token);
 
       await addUser(user);
-      isSuccess && setUsers(null);
+      if (isSuccess) {
+        setUsers(null);
+        setPage(1);
+      }
     } catch (error) {
       toast.error('Ups... Something went wrong, try letter');
       console.log(error);
