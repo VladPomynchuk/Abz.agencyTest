@@ -51,7 +51,7 @@ const AddUserForm = ({ setUsers }) => {
                     </Alert>
                   )}
                   <AddButton disabled={!formik.dirty} type="submit">
-                    Sign in
+                    Sign up
                   </AddButton>
                 </Box>
               </Wrapper>
