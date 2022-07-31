@@ -14,9 +14,9 @@ const Hero = () => {
           mind. They should also be excited to learn, as the world of Front-End
           Development keeps evolving.
         </Text>
-        <Button>
-          <Link href="#sign">Sign up</Link>
-        </Button>
+        <Link href="#sign">
+          <Button>Sign up</Button>
+        </Link>
       </Container>
     </Section>
   );

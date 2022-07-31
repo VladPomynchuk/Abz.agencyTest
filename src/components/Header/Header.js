@@ -10,12 +10,12 @@ const Header = () => {
         <Box>
           <img src={logo} alt="logo" />
           <Nav>
-            <Button>
-              <Link href="#users">Users</Link>
-            </Button>
-            <Button>
-              <Link href="#sign">Sign up</Link>
-            </Button>
+            <Link href="#users">
+              <Button>Users</Button>
+            </Link>
+            <Link href="#sign">
+              <Button>Sign up</Button>
+            </Link>
           </Nav>
         </Box>
       </Container>

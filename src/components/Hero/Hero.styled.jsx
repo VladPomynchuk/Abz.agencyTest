@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgcImage from 'images/pexels-alexandr-podvalny-1227513.jpeg';
+import bgcImage from 'images/bgHero/pexels-alexandr-podvalny-1227513.jpeg';
 
 export const Section = styled.section`
   padding-top: 40px;

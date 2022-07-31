@@ -15,7 +15,10 @@ const TextInput = ({ formik, name, label, margin = '50px' }) => {
       label={label}
       type={name}
       value={formik.values[name]}
-      onChange={formik.handleChange}
+      onChange={e => {
+        formik.setFieldTouched(name, true);
+        formik.setFieldValue(name, e.currentTarget.value);
+      }}
       error={formik.touched[name] && Boolean(formik.errors[name])}
       helperText={formik.touched[name] && formik.errors[name]}
     />

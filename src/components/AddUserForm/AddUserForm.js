@@ -4,7 +4,7 @@ import IsSuccess from 'components/IsSuccess';
 import TextInput from './TextInput';
 import RadioInput from './RadioInput';
 import FileInput from './FileInput';
-import { useForm } from 'components/hooks/useForm';
+import { useForm } from 'hooks/useForm';
 
 const AddUserForm = ({ setUsers, setPage }) => {
   const { isSuccess, isLoading, formik, data, isError, error } = useForm(
@@ -52,7 +52,10 @@ const AddUserForm = ({ setUsers, setPage }) => {
                       {error.data.message}
                     </Alert>
                   )}
-                  <AddButton disabled={!formik.dirty} type="submit">
+                  <AddButton
+                    disabled={!formik.dirty || !formik.isValid}
+                    type="submit"
+                  >
                     Sign up
                   </AddButton>
                 </Box>

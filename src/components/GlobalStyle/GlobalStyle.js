@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 import 'normalize.css';
 
 const GlobalStyle = createGlobalStyle`
+html {
+scroll-behavior: smooth;
+}
   * {
     box-sizing: border-box;
   }

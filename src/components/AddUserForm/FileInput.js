@@ -1,27 +1,18 @@
 import { InputLabel, FormHelperText } from '@mui/material';
 import styled from 'styled-components';
+import { checkImage } from 'helpers/checkImage';
 
 const FileInput = ({ formik }) => {
   return (
     <InputLabel sx={{ mb: '47px' }}>
       <input
         hidden
-        max-size={2000}
         accept=" .jpg, .jpeg"
         multiple
         id="photo"
         name="photo"
         onChange={event => {
-          formik.setFieldTouched('photo', true);
-          if (event.currentTarget.files[0].size > 50000000) {
-            formik.setFieldError(
-              'photo',
-              'The photo size must not be greater than 5 Mb.'
-            );
-            return;
-          }
-
-          formik.setFieldValue('photo', event.currentTarget.files[0]);
+          checkImage(event, formik);
         }}
         type="file"
       />
